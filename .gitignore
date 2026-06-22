@@ -1,0 +1,4 @@
+# Tooling usado apenas para gerar o PDF (não faz parte da apresentação)
+node_modules/
+package.json
+package-lock.json
