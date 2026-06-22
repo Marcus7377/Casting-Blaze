@@ -1,14 +1,34 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 90">
-  <g fill="#FFFFFF">
-    <!-- "Spin" custom-ish wordmark using a clean geometric sans -->
-    <text x="0" y="60"
-          font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
-          font-size="64" font-weight="900" letter-spacing="-2">Spin</text>
-    <!-- "GAMING" small caps under or beside -->
-    <text x="155" y="60"
-          font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
-          font-size="22" font-weight="600" letter-spacing="6">GAMING</text>
-    <!-- Subtle red dot accent on the "i" of Spin -->
-    <circle cx="68" cy="18" r="6" fill="#E50E2B"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 150" fill="none">
+  <!--
+    Approximation of the Spin Gaming wordmark.
+    Custom chunky-italic letters "SpiN" + a small "GAMING" pill below.
+    Primary brand color: orange-red (#FF4D2E).
+    NOTE: Replace this file with the official SVG/PNG when available —
+    no other code change is required, only this asset.
+  -->
+
+  <!-- "Spin" wordmark in a heavy italic display style.
+       We simulate the custom typeface using a black-italic sans-serif. -->
+  <g transform="translate(0, 0)">
+    <text x="0" y="92"
+          font-family="'Inter', 'Arial Black', 'Helvetica Neue', sans-serif"
+          font-style="italic"
+          font-weight="900"
+          font-size="110"
+          letter-spacing="-4"
+          fill="#FF4D2E">SpiN</text>
+
+    <!-- White "GAMING" pill positioned over the lower portion -->
+    <g transform="translate(78, 100)">
+      <rect x="0" y="0" width="142" height="22" rx="3"
+            fill="#FFFFFF"/>
+      <text x="71" y="16"
+            font-family="'Inter', 'Helvetica Neue', Arial, sans-serif"
+            font-weight="800"
+            font-size="13"
+            letter-spacing="6"
+            text-anchor="middle"
+            fill="#1A1A1A">GAMING</text>
+    </g>
   </g>
 </svg>
