@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 90">
+  <g fill="#FFFFFF">
+    <!-- "Spin" custom-ish wordmark using a clean geometric sans -->
+    <text x="0" y="60"
+          font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
+          font-size="64" font-weight="900" letter-spacing="-2">Spin</text>
+    <!-- "GAMING" small caps under or beside -->
+    <text x="155" y="60"
+          font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
+          font-size="22" font-weight="600" letter-spacing="6">GAMING</text>
+    <!-- Subtle red dot accent on the "i" of Spin -->
+    <circle cx="68" cy="18" r="6" fill="#E50E2B"/>
+  </g>
+</svg>

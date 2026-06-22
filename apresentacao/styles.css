@@ -1,0 +1,432 @@
+/* =====================================================
+   Casting Blaze — Spin Gaming x Blaze
+   Estilo visual fiel ao deck "Blaze – Junho 2026"
+   ===================================================== */
+
+:root {
+  --bg-0:        #0a0103;
+  --bg-1:        #1a0509;
+  --bg-2:        #2d070e;
+  --bg-3:        #4a0a16;
+  --red-blaze:   #e50e2b;
+  --red-soft:    #ff3b54;
+  --red-dim:     #7a0a18;
+  --white:       #ffffff;
+  --white-dim:   rgba(255,255,255,0.72);
+  --white-mute:  rgba(255,255,255,0.55);
+  --hairline:    rgba(255,255,255,0.18);
+  --hairline-red:rgba(229,14,43,0.55);
+  --card-bg:     rgba(15,3,7,0.72);
+  --card-stroke: rgba(229,14,43,0.45);
+}
+
+@font-face {
+  font-family: "InterFallback";
+  src: local("Inter"), local("Helvetica Neue"), local("Arial");
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  color: var(--white);
+  background: #000;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 0 64px;
+  background: #000;
+}
+
+/* ---------- Slide canvas (1280 x 800, escala fixa) ---------- */
+.slide {
+  position: relative;
+  width: 1280px;
+  height: 800px;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 80% at 80% 10%, #4a0a16 0%, rgba(74,10,22,0) 55%),
+    radial-gradient(110% 90% at 0% 100%, #2d070e 0%, rgba(45,7,14,0) 60%),
+    linear-gradient(180deg, #15040a 0%, #0a0103 100%);
+  color: var(--white);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+}
+
+/* Subtle large "Spin GAMING" watermark behind content (as in original deck) */
+.slide::before {
+  content: "Spin\A GAMING";
+  white-space: pre;
+  position: absolute;
+  top: 8%;
+  left: -2%;
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 900;
+  font-size: 280px;
+  letter-spacing: -8px;
+  line-height: 0.78;
+  color: rgba(255,255,255,0.045);
+  text-transform: none;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* Subtle diagonal hairline lines like in the deck */
+.slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      115deg,
+      rgba(229,14,43,0.0) 0px,
+      rgba(229,14,43,0.0) 120px,
+      rgba(229,14,43,0.05) 120px,
+      rgba(229,14,43,0.05) 121px
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ---------- Header bar (top date + tagline) ---------- */
+.slide-header {
+  position: absolute;
+  top: 28px;
+  left: 64px;
+  right: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 5;
+}
+.slide-date {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: var(--white);
+  text-transform: uppercase;
+}
+.slide-tagline {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--white);
+  text-transform: uppercase;
+  text-align: center;
+  max-width: 380px;
+  line-height: 1.6;
+}
+.slide-logo-spin {
+  width: 110px;
+}
+.slide-logo-spin img { width: 100%; display: block; }
+
+/* Horizontal top + bottom hairlines like the original deck */
+.slide-rule-top, .slide-rule-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    rgba(229,14,43,0) 0%,
+    rgba(229,14,43,0.7) 25%,
+    rgba(229,14,43,0.9) 50%,
+    rgba(229,14,43,0.7) 75%,
+    rgba(229,14,43,0) 100%);
+  z-index: 4;
+}
+.slide-rule-top { top: 14px; }
+.slide-rule-bottom { bottom: 14px; }
+
+/* ---------- Pagination (bottom) ---------- */
+.slide-footer {
+  position: absolute;
+  bottom: 28px;
+  left: 64px;
+  right: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: var(--white-mute);
+  text-transform: uppercase;
+  z-index: 5;
+}
+
+/* ---------- Content area ---------- */
+.slide-body {
+  position: absolute;
+  top: 90px;
+  bottom: 70px;
+  left: 64px;
+  right: 64px;
+  z-index: 3;
+  display: flex;
+}
+
+/* ---------- Typography ---------- */
+h1, h2, h3, h4 { font-weight: 800; line-height: 1.05; }
+
+.eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--red-blaze);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--hairline-red);
+}
+
+.title-xl {
+  font-size: 84px;
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: -2px;
+}
+.title-lg {
+  font-size: 54px;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+}
+.title-md {
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+.title-sm {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.body-text {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--white-dim);
+  font-weight: 400;
+}
+.body-text strong { color: var(--white); font-weight: 700; }
+.body-text .hl { color: var(--red-soft); font-weight: 700; }
+
+.muted-cap {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--white-mute);
+}
+
+/* ---------- Cards ---------- */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-stroke);
+  border-radius: 14px;
+  padding: 28px 28px;
+  position: relative;
+  backdrop-filter: blur(2px);
+}
+.card-eyebrow {
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: 700;
+  color: var(--red-blaze);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.card-title {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  letter-spacing: -0.3px;
+}
+.card-body {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--white-dim);
+}
+
+/* Stat card */
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.stat-num {
+  font-size: 56px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -2px;
+  color: var(--white);
+  background: linear-gradient(180deg, #ffffff 0%, #ffb0bb 120%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.stat-num.red {
+  background: linear-gradient(180deg, #ff5d75 0%, #c40a23 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.stat-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--white-mute);
+}
+.stat-sub {
+  font-size: 12.5px;
+  color: var(--white-dim);
+  line-height: 1.4;
+  margin-top: 4px;
+}
+
+/* Section toggle (like "INFLUENCER CASINO / BLAZE HOUSE" tabs) */
+.section-tabs {
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 14px;
+  z-index: 6;
+}
+.section-tab {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--white-mute);
+  padding: 10px 26px;
+  border: 1px solid var(--hairline-red);
+  border-radius: 999px;
+}
+.section-tab.active {
+  color: var(--white);
+  background: rgba(229,14,43,0.18);
+  border-color: var(--red-blaze);
+}
+
+/* Bullet list with red square markers */
+.bullets { list-style: none; margin: 0; padding: 0; }
+.bullets li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--white-dim);
+  margin-bottom: 8px;
+}
+.bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 8px;
+  width: 8px; height: 8px;
+  background: var(--red-blaze);
+  border-radius: 1px;
+}
+
+/* Numbered process steps */
+.steps {
+  display: grid;
+  gap: 16px;
+}
+.step {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 18px;
+  align-items: start;
+}
+.step-num {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: rgba(229,14,43,0.15);
+  border: 1px solid var(--red-blaze);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 900;
+  color: var(--white);
+}
+.step-title {
+  font-size: 15px; font-weight: 800; letter-spacing: 0;
+  text-transform: uppercase; color: var(--red-blaze);
+  margin-bottom: 4px;
+}
+.step-body {
+  font-size: 13.5px; line-height: 1.5; color: var(--white-dim);
+}
+
+/* Icon circles */
+.icon-circle {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  border: 1px solid var(--hairline-red);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 14px;
+  background: rgba(229,14,43,0.08);
+}
+.icon-circle svg { width: 26px; height: 26px; fill: var(--white); }
+
+/* Mini-icon (for footer rows) */
+.mini-icon {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--hairline-red);
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(229,14,43,0.06);
+}
+.mini-icon svg { width: 20px; height: 20px; fill: var(--white); }
+
+/* Pill (tag) */
+.pill {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--red-blaze);
+  border: 1px solid var(--red-blaze);
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+.pill-solid {
+  background: var(--red-blaze);
+  color: var(--white);
+  border-color: var(--red-blaze);
+}
+
+/* Slide hero image */
+.hero-img {
+  width: 100%; height: 100%; object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  filter: saturate(1.05) contrast(1.02);
+}
+
+/* Print / PDF rules */
+@page {
+  size: 1280px 800px;
+  margin: 0;
+}
+@media print {
+  html, body { background: #000; }
+  body { padding: 0; gap: 0; display: block; }
+  .slide {
+    box-shadow: none;
+    page-break-after: always;
+    break-after: page;
+    margin: 0;
+  }
+  .slide:last-of-type { page-break-after: auto; }
+}
