@@ -1,38 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 280" fill="none">
-  <!--
-    Blaze official mark — drop with two flame tips on top,
-    rounded-square base, 5 pips in quincunx (dice face 5).
-    All shapes in #E50E2B (Blaze red). Pips are darker red,
-    creating the cut-out appearance from the original artwork.
-  -->
-
-  <!-- Flame tips above the drop -->
-  <path d="
-    M 95  46
-    C 102 28, 108 18, 112 6
-    C 116 16, 118 28, 119 44
-    Z" fill="#E50E2B"/>
-  <path d="
-    M 135 56
-    C 142 42, 148 32, 152 22
-    C 156 32, 158 44, 158 56
-    Z" fill="#E50E2B"/>
-
-  <!-- Main drop / rounded-square body -->
-  <path d="
-    M 120 40
-    C 175 100, 215 140, 215 188
-    C 215 230, 175 262, 120 262
-    C 65  262, 25  230, 25  188
-    C 25  140, 65  100, 120 40
-    Z" fill="#E50E2B"/>
-
-  <!-- Pips (quincunx) — darker red cut-out look -->
-  <g fill="#B00922">
-    <circle cx="80"  cy="170" r="14"/>
-    <circle cx="160" cy="170" r="14"/>
-    <circle cx="120" cy="200" r="14"/>
-    <circle cx="80"  cy="230" r="14"/>
-    <circle cx="160" cy="230" r="14"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 280 130"
+     preserveAspectRatio="xMidYMid meet">
+  <!-- PLACEHOLDER — substituir por arquivo oficial Blaze quando disponível -->
+  <text x="0" y="92"
+        font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
+        font-weight="900" font-size="100" letter-spacing="-4"
+        fill="#E50E2B">blaze</text>
 </svg>

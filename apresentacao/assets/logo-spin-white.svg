@@ -1,32 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg"
-     viewBox="0 0 320 150"
-     width="320" height="150"
+     viewBox="0 0 320 130"
      preserveAspectRatio="xMidYMid meet">
-  <!--
-    Spin Gaming wordmark — WHITE variant for dark backgrounds.
-    Used in slide headers over the burgundy deck background.
-    For the partnership lockup (CTA), use logo-spin.svg (full color).
-  -->
-  <g>
-    <text x="0" y="92"
-          font-family="Inter, 'Arial Black', 'Helvetica Neue', Arial, sans-serif"
-          font-style="italic"
-          font-weight="900"
-          font-size="110"
-          letter-spacing="-4"
-          fill="#FFFFFF">SpiN</text>
-
-    <g transform="translate(78, 100)">
-      <rect x="0" y="0" width="142" height="22" rx="3"
-            fill="#FFFFFF" fill-opacity="0.14"
-            stroke="#FFFFFF" stroke-width="1.4"/>
-      <text x="71" y="16"
-            font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
-            font-weight="800"
-            font-size="13"
-            letter-spacing="6"
-            text-anchor="middle"
-            fill="#FFFFFF">GAMING</text>
-    </g>
-  </g>
+  <!-- PLACEHOLDER — substituir por arquivo oficial Spin Gaming (white) -->
+  <text x="0" y="78"
+        font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
+        font-weight="900" font-size="88" letter-spacing="-3"
+        fill="#FFFFFF">spin</text>
+  <text x="6" y="118"
+        font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
+        font-weight="800" font-size="22" letter-spacing="8"
+        fill="#FFFFFF">GAMING</text>
 </svg>
