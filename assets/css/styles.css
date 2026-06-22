@@ -1,0 +1,489 @@
+/* ============================================================
+   Spin Gaming x Blaze — Dealer Influencer + Cashback Deck
+   Design system inspired by the Blaze institutional PDF art.
+   ============================================================ */
+
+:root {
+  /* Brand palette */
+  --blaze-red: #f5404e;
+  --blaze-red-bright: #ff5663;
+  --blaze-red-deep: #c81528;
+  --crimson-1: #2a060c;
+  --crimson-2: #3d0a13;
+  --crimson-3: #1a0306;
+  --ink: #0c0204;
+
+  --white: #ffffff;
+  --paper: #f6ecee;
+  --muted: #c9a3a9;
+  --muted-2: #9c7980;
+  --line: rgba(245, 64, 78, 0.28);
+  --card: rgba(20, 5, 9, 0.55);
+  --card-strong: rgba(12, 3, 6, 0.78);
+
+  /* Type */
+  --font-head: "Oswald", "Bebas Neue", "Arial Narrow", sans-serif;
+  --font-body: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --font-brand: "Poppins", "Montserrat", sans-serif;
+
+  --slide-w: 1280px;
+  --slide-h: 720px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: #120307;
+  color: var(--paper);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+/* ---------------- Deck layout ---------------- */
+.deck {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  padding: 40px 16px 120px;
+}
+
+.slide {
+  position: relative;
+  width: var(--slide-w);
+  height: var(--slide-h);
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 18px;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 85% 12%, rgba(245, 64, 78, 0.30) 0%, rgba(245, 64, 78, 0) 45%),
+    radial-gradient(120% 120% at 8% 100%, rgba(200, 21, 40, 0.32) 0%, rgba(200, 21, 40, 0) 50%),
+    linear-gradient(135deg, var(--crimson-2) 0%, var(--crimson-1) 38%, var(--crimson-3) 78%, var(--ink) 100%);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(245, 64, 78, 0.12);
+  color: var(--paper);
+}
+
+/* faint diagonal texture lines like the PDF */
+.slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -38deg,
+    rgba(255, 255, 255, 0.018) 0px,
+    rgba(255, 255, 255, 0.018) 1px,
+    transparent 1px,
+    transparent 60px
+  );
+  pointer-events: none;
+}
+
+.slide__inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  padding: 56px 64px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------------- Top bar ---------------- */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 26px;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--blaze-red-bright);
+}
+
+.slide__num {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--muted-2);
+}
+
+/* ---------------- Typography ---------------- */
+h1.title {
+  font-family: var(--font-head);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.02;
+  font-size: 52px;
+}
+
+h2.heading {
+  font-family: var(--font-head);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  line-height: 1.05;
+  font-size: 38px;
+  margin-bottom: 18px;
+}
+
+.heading .accent, .title .accent { color: var(--blaze-red); }
+
+.lead {
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 60ch;
+}
+
+.section-label {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--blaze-red-bright);
+  margin-bottom: 8px;
+}
+
+p { line-height: 1.55; }
+strong { color: var(--white); font-weight: 700; }
+
+/* ---------------- Logos ---------------- */
+.brand-blaze {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.brand-blaze .wordmark {
+  font-family: var(--font-brand);
+  font-weight: 700;
+  font-size: 34px;
+  color: var(--white);
+  letter-spacing: -1px;
+}
+.brand-spin {
+  font-family: var(--font-brand);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--white);
+  letter-spacing: 0.5px;
+  line-height: 1;
+  text-align: right;
+}
+.brand-spin .gaming {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 6px;
+  color: var(--muted);
+  font-weight: 600;
+  margin-top: 2px;
+}
+.brand-spin .dot { color: var(--blaze-red); }
+
+/* ---------------- Grid helpers ---------------- */
+.cols {
+  display: grid;
+  gap: 28px;
+  flex: 1;
+  min-height: 0;
+}
+.cols-2 { grid-template-columns: 1fr 1fr; }
+.cols-2-wide { grid-template-columns: 1.15fr 0.85fr; }
+.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.cols-4 { grid-template-columns: repeat(4, 1fr); }
+.center-y { align-content: center; }
+
+/* ---------------- Cards ---------------- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 22px 22px;
+  backdrop-filter: blur(2px);
+}
+.card--solid { background: var(--card-strong); }
+.card h3 {
+  font-family: var(--font-head);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: var(--white);
+}
+.card p { font-size: 14.5px; color: var(--muted); }
+
+.icon-badge {
+  width: 46px; height: 46px;
+  border-radius: 12px;
+  display: grid; place-items: center;
+  background: linear-gradient(135deg, rgba(245,64,78,0.25), rgba(245,64,78,0.05));
+  border: 1px solid var(--line);
+  margin-bottom: 14px;
+  color: var(--blaze-red-bright);
+}
+.icon-badge svg { width: 24px; height: 24px; }
+
+/* ---------------- Stats ---------------- */
+.stat { }
+.stat .num {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 46px;
+  color: var(--blaze-red-bright);
+  line-height: 1;
+}
+.stat .label {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+.kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+
+/* ---------------- Lists ---------------- */
+ul.ticks { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+ul.ticks li {
+  position: relative;
+  padding-left: 28px;
+  font-size: 15px;
+  color: var(--paper);
+  line-height: 1.5;
+}
+ul.ticks li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 6px;
+  width: 14px; height: 14px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, var(--blaze-red-bright), var(--blaze-red-deep));
+}
+ul.ticks li b { color: var(--white); }
+
+/* ---------------- Tabs (Influencer Casino / Blaze House style) ---------------- */
+.tabs { display: flex; gap: 14px; margin-bottom: 22px; }
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 12px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: 3px;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+.tab.active {
+  color: var(--white);
+  border-color: var(--blaze-red);
+  background: rgba(245, 64, 78, 0.12);
+}
+
+/* ---------------- Media placeholder ---------------- */
+.media {
+  position: relative;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(80% 80% at 50% 30%, rgba(245,64,78,0.18), rgba(0,0,0,0) 70%),
+    linear-gradient(160deg, #20060b, #0a0204);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
+  color: var(--muted);
+  overflow: hidden;
+  min-height: 0;
+}
+.media .play {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  background: rgba(245,64,78,0.18);
+  border: 1px solid var(--blaze-red);
+  color: var(--blaze-red-bright);
+}
+.media .cap {
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  padding: 0 16px;
+}
+.media .cap b { color: var(--white); }
+.media__tag {
+  position: absolute;
+  top: 12px; left: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--blaze-red-bright);
+  background: rgba(0,0,0,0.4);
+  border: 1px solid var(--line);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+/* viral badge */
+.viral-badge {
+  position: absolute;
+  bottom: 16px; right: 16px;
+  background: linear-gradient(135deg, var(--blaze-red-bright), var(--blaze-red-deep));
+  color: #fff;
+  border-radius: 12px;
+  padding: 10px 16px;
+  text-align: center;
+}
+.viral-badge .v-num { font-family: var(--font-head); font-weight: 700; font-size: 26px; line-height: 1; }
+.viral-badge .v-lbl { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.9; }
+
+/* ---------------- Flywheel / flow ---------------- */
+.flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; align-items: stretch; }
+.flow .step {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px 18px;
+}
+.flow .step .n {
+  font-family: var(--font-head);
+  font-size: 30px;
+  color: rgba(245,64,78,0.45);
+  font-weight: 700;
+}
+.flow .step h4 {
+  font-family: var(--font-head);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 17px;
+  margin: 6px 0 6px;
+  color: var(--white);
+}
+.flow .step p { font-size: 13px; color: var(--muted); }
+
+/* ---------------- Footnote / sources ---------------- */
+.foot {
+  margin-top: auto;
+  padding-top: 16px;
+  font-size: 10.5px;
+  color: var(--muted-2);
+  letter-spacing: 0.3px;
+  line-height: 1.5;
+  border-top: 1px solid rgba(245,64,78,0.16);
+}
+.disclaimer {
+  font-size: 10px;
+  color: var(--muted-2);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+/* ---------------- Cover ---------------- */
+.cover .slide__inner { justify-content: space-between; }
+.cover .hero-title {
+  font-family: var(--font-head);
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 0.98;
+  letter-spacing: 1px;
+}
+.cover .hero-sub {
+  font-size: 19px;
+  color: var(--muted);
+  margin-top: 18px;
+  max-width: 52ch;
+  line-height: 1.5;
+}
+.cover .pill-row { display: flex; gap: 12px; margin-top: 26px; flex-wrap: wrap; }
+.pill {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: rgba(245,64,78,0.08);
+}
+
+/* ---------------- Highlight box ---------------- */
+.highlight {
+  border-left: 3px solid var(--blaze-red);
+  padding: 12px 0 12px 18px;
+  font-size: 17px;
+  color: var(--white);
+  line-height: 1.5;
+}
+
+.tag-line {
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: 6px;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+
+/* ---------------- Navigation bar (screen only) ---------------- */
+.navbar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 12px;
+  background: linear-gradient(0deg, rgba(8,1,3,0.92), rgba(8,1,3,0));
+}
+.navbar button {
+  background: rgba(245,64,78,0.14);
+  border: 1px solid var(--line);
+  color: var(--paper);
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 13px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.navbar button:hover { background: rgba(245,64,78,0.3); }
+.navbar .counter { font-size: 13px; color: var(--muted); min-width: 64px; text-align: center; }
+.navbar .hint { font-size: 11px; color: var(--muted-2); letter-spacing: 1px; }
+
+/* ---------------- Print / PDF ---------------- */
+@page { size: 1280px 720px; margin: 0; }
+
+@media print {
+  html, body { background: #fff; }
+  .deck { gap: 0; padding: 0; display: block; }
+  .navbar { display: none !important; }
+  .slide {
+    width: 1280px;
+    height: 720px;
+    border-radius: 0;
+    box-shadow: none;
+    page-break-after: always;
+    break-after: page;
+    margin: 0;
+  }
+  .slide:last-child { page-break-after: auto; }
+}
